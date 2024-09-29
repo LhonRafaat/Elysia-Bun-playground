@@ -1,9 +1,10 @@
 import { Elysia, error } from "elysia";
 import { swagger } from "@elysiajs/swagger";
+import { userHandler } from "./resources/users/user.handler";
 
-const app = new Elysia()
+const app = new Elysia({ prefix: "/api" })
   .use(swagger())
-  .get("/", (c) => error(404, { msg: "not found" }))
+  .use(userHandler)
   .listen(5000);
 
 console.log(
