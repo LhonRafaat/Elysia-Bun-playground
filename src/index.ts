@@ -1,7 +1,7 @@
 import cors from "@elysiajs/cors";
 import { Elysia } from "elysia";
 import { swagger } from "@elysiajs/swagger";
-import { userHandler } from "./plugins/users/user.handler";
+import { userHandler } from "./handlers/users/user.handler";
 import { env } from "./env";
 
 const app = new Elysia({ prefix: "/api" })
