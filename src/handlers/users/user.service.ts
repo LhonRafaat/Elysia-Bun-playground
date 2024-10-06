@@ -8,7 +8,13 @@ export class UserService {
     this.db = db;
   }
   async getUsers() {
-    const users = this.db.selectFrom("users").selectAll().execute();
-    return users;
+    const limit = 10;
+    const query = this.db.selectFrom("users").selectAll();
+
+    if (limit) {
+      query.limit(limit);
+    }
+
+    return await query.execute();
   }
 }
